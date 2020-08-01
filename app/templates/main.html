@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        a, a:hover{
+            color: black;
+            text-decoration: none;
+        }
+        header{
+            font-size: 2rem;
+            text-align: center;
+            font-weight: bold;
+        }
+        .box{
+            display: flex;
+            font-weight: bold;
+            padding: 1rem 0rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .create{
+            margin-left: 2rem;
+        }
+        .text{
+            padding: 2rem 0rem;
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .title{
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header class="mt-4 mb-4">
+        <a href="/">Blog</a>
+    </header>
+    <div class="container mt-1">
+        <div class="box">
+            <div class="bar">
+                <a href="#">
+                    <i class="fas fa-bars"></i>
+                    전체 게시글
+                </a>
+            </div>
+            <div class="create">
+                <a href="/create">
+                    <i class="far fa-edit"></i>
+                    게시글 작성
+                </a>
+            </div>
+        </div>
+        {%for i in blogs.all%}
+            <a href="/detail/{{i.id}}">
+                <div class="text">
+                    <span class="title">{{i.title}}</span>
+                    <span class="body">{{i.body}}</span>
+            </div>
+            </a>
+        {%endfor%}
+    </div>
+</body>
+</html>
